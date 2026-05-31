@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: factor-model-gamma-1
+spec:
+  ttlSecondsAfterFinished: 300
+  template:
+    spec:
+      containers:
+        - name: factor-model
+          image: factor-model:latest
+          imagePullPolicy: Never
+          args:
+            - --gamma
+            - "1.0"
+            - --output-dir
+            - /data/outputs
+          volumeMounts:
+            - name: factor-data
+              mountPath: /data
+      volumes:
+        - name: factor-data
+          persistentVolumeClaim:
+            claimName: factor-data-pvc
+      restartPolicy: Never
+  backoffLimit: 2
