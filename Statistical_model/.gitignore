@@ -1,0 +1,7 @@
+ssh_key.md
+Data
+Miniconda3-latest-Linux-x86_64.sh
+Deprecated
+__pycache__/
+.ipynb_checkpoints/
+make_PCA_returns.ipynb
