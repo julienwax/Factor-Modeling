@@ -20,7 +20,7 @@ spec:
               mountPath: /data
       volumes:
         - name: factor-data
-          persistentVolumeClaim:
-            claimName: factor-data-pvc
+          hostPath:
+            path: /mnt/factor-data
       restartPolicy: Never
   backoffLimit: 2
